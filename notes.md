@@ -13,4 +13,6 @@
   - Allow people to mention what they're bringing
 - Share lists
 - Trading?
+- Caloric intake?
+- Permutations that meet calorie target
 
