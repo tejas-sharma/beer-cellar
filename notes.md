@@ -16,3 +16,6 @@
 - Caloric intake?
 - Permutations that meet calorie target
 
+# Things to do
+- Set up database
+- Set up API w/ graphql
