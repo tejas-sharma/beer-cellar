@@ -7,6 +7,7 @@ namespace BeerCellar.Models
     {
         public Cellar()
         {
+            Beers = new List<Beer>();
         }
 
         public IEnumerable<Beer> Beers { get; set; }

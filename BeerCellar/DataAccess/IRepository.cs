@@ -1,5 +1,5 @@
 ﻿using System;
-namespace BeerCellar.Models
+namespace BeerCellar.DataAccess
 {
     public interface IRepository<TItem, TId> where TItem : class
     {
