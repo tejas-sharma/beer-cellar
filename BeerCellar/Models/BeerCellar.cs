@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace BeerCellar.Models
 {
-    public class Cellar
+    public class BeerCellar
     {
-        public Cellar()
+        public BeerCellar()
         {
             Beers = new List<Beer>();
         }
