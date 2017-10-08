@@ -5,7 +5,7 @@ namespace BeerCellar.Models
     {
         public BrewerType()
         {
-            Field(x => x.Beers).Description("The beers brewed by this brewer");
+            Field<ListGraphType<BeerType>>("beers", description: "The beers brewerd by this brewer.");
             Field(x => x.Id).Description("The id of this brewer.");
             Field(x => x.Name).Description("The name of the brewer");
         }

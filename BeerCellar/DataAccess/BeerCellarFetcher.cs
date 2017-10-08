@@ -12,14 +12,14 @@ namespace BeerCellar.DataAccess
             var foundersBeers = new List<Beer>();
             var founders = new Brewer
             {
-                Id = 1,
+                Id = "1",
                 Name = "Founders",
                 Beers = foundersBeers
             };
-            foundersBeers.Add(new Beer { Brewer = founders, Id = 1, Name = "KBS" });
-			foundersBeers.Add(new Beer { Brewer = founders, Id = 2, Name = "CBS" });
+            foundersBeers.Add(new Beer { Brewer = founders, Id = "1", Name = "KBS" });
+			foundersBeers.Add(new Beer { Brewer = founders, Id = "2", Name = "CBS" });
             var cellar = new Models.BeerCellar { Id = "1", Name = "Tejas' Cellar", Beers = foundersBeers };
-            var tejas = new User { Id = 1, FirstName = "Tejas", LastName = "Sharma", BeerCellars = new List<Models.BeerCellar> { cellar } };
+            var tejas = new User { Id = "1", FirstName = "Tejas", LastName = "Sharma", BeerCellars = new List<Models.BeerCellar> { cellar } };
             cellar.Owner = tejas;
 			_cellars = new Dictionary<string, Models.BeerCellar>();
             _cellars.Add("1", cellar);

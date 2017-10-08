@@ -8,6 +8,7 @@ using GraphQL.Http;
 using GraphQL.Types;
 using BeerCellar.Models;
 using BeerCellar.DataAccess;
+using Newtonsoft.Json.Linq;
 
 namespace BeerCellar.Controllers
 {
@@ -35,6 +36,17 @@ namespace BeerCellar.Controllers
             {
                 x.Schema = new Schema { Query = _query };
                 x.Query = query;
+            });
+            return new JsonResult(result);
+        }
+
+        [HttpPost]
+        public async Task<JsonResult> Post([FromBody] GraphQLQuery query)
+        {
+            var result = await _exec.ExecuteAsync(x =>
+            {
+                x.Schema = new Schema { Query = _query };
+                x.Query = query.Query;
             });
             return new JsonResult(result);
         }

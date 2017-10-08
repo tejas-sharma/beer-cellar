@@ -8,7 +8,7 @@ namespace BeerCellar.Models
             Field(x => x.Id).Description("The user id.");
             Field(x => x.FirstName).Description("The first name of the user");
             Field(x => x.LastName).Description("The last name of the user.");
-            Field(x => x.BeerCellars).Description("The cellars owned by this user");
+            Field<ListGraphType<BeerCellarType>>("beerCellars", description: "The cellars owned by this user.");
         }
     }
 }
