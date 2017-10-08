@@ -1,14 +1,15 @@
 ﻿type BeerCellar {
     id: ID!,
     name: String!,
-    owner: Owner!,
+    owner: User!,
     beers: [Beer!]!
 }
 
 type Beer {
     id: ID!,
     name: String!,
-    brewer: Brewer!
+    brewer: Brewer!,
+    variants: [BeerVariant]
 }
 
 type Brewer {
@@ -21,4 +22,11 @@ type BeerVariant {
     id: ID!,
     year: String!,
     beer: Beer!
+}
+
+type User {
+    id: ID!,
+    firstName: String!,
+    lastName: String!,
+    cellars: [BeerCellars!]
 }
