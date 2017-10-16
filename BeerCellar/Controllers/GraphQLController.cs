@@ -17,13 +17,16 @@ namespace BeerCellar.Controllers
     {
         private readonly IDocumentExecuter _exec;
         private readonly BeerCellarQuery _query;
+        private readonly BeerCellarMutation _mutation;
 
         public GraphQLController(
             IDocumentExecuter exec,
-            BeerCellarQuery query)
+            BeerCellarQuery query,
+            BeerCellarMutation mutation)
         {
             _exec = exec;
             _query = query;
+            _mutation = mutation;
         }
 
         [HttpGet]
@@ -34,7 +37,7 @@ namespace BeerCellar.Controllers
         {
             var result = await _exec.ExecuteAsync(x =>
             {
-                x.Schema = new Schema { Query = _query };
+                x.Schema = new Schema { Query = _query, Mutation = _mutation };
                 x.Query = query;
             });
             return new JsonResult(result);
@@ -45,7 +48,7 @@ namespace BeerCellar.Controllers
         {
             var result = await _exec.ExecuteAsync(x =>
             {
-                x.Schema = new Schema { Query = _query };
+                x.Schema = new Schema { Query = _query, Mutation = _mutation };
                 x.Query = query.Query;
             });
             return new JsonResult(result);

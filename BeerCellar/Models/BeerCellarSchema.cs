@@ -8,6 +8,7 @@ namespace BeerCellar.Models
             : base(resolver)
         {
             Query = (BeerCellarQuery) resolver(typeof(BeerCellarQuery));
+            Mutation = (BeerCellarMutation)resolver(typeof(BeerCellarMutation));
         }
     }
 }

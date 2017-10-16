@@ -3,22 +3,24 @@ using GraphQL;
 using GraphQL.Types;
 using GraphQL.Http;
 using BeerCellar.DataAccess;
+using System.Collections.Generic;
 
 namespace BeerCellar.Models
 {
     public class BeerCellarQuery : ObjectGraphType
     {
-        private readonly IBeerCellarFetcher _fetcher;
+        private readonly IBeerCellarDbAccess _fetcher;
 
-        public BeerCellarQuery(IBeerCellarFetcher fetcher)
+        public BeerCellarQuery(IBeerCellarDbAccess fetcher)
         {
             _fetcher = fetcher;
-            Field<BeerCellarType>(
-                "beercellar",
-                resolve: (ctx) => {
-                    var c = _fetcher.GetById(1);
-                    return c;
+            Field<ListGraphType<BeerCellarType>>(
+                "beerCellars",
+                arguments: new QueryArguments(new QueryArgument<StringGraphType> { Name = "user" }),
+                resolve: (ctx) =>
+                {
+                    return _fetcher.GetByUser(ctx.GetArgument<string>("user"));
                 });
-        }
+			}
     }
 }

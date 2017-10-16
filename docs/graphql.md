@@ -1,4 +1,9 @@
-﻿type BeerCellar {
+# API 
+
+## Entities 
+
+```
+type BeerCellar {
     id: ID!,
     name: String!,
     owner: User!,
@@ -30,14 +35,6 @@ type User {
     lastName: String!,
     cellars: [BeerCellars!]
 }
+```
 
-Mutation Example:
-
-mutation CreateBeerCellarForUser {
-  createBeerCellar(beerCellar: {name: "my cellar 2", owner: {id:"tsharma"}}) {
-    name,
-    owner {
-      id
-    }
-  }
-}
+## 

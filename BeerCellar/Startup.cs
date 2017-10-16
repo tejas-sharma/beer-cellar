@@ -25,7 +25,8 @@ namespace BeerCellar
 		{
 			services.AddMvc();
 			services.AddTransient<BeerCellarQuery>();
-			services.AddSingleton<IBeerCellarFetcher, BeerCellarFetcher>();
+            services.AddTransient<BeerCellarMutation>();
+			services.AddSingleton<IBeerCellarDbAccess,MockBeerCellarDbAccess>();
 			services.AddSingleton<BeerCellarSchema>(
 				x => new BeerCellarSchema(
 					type => (IGraphType)x.GetService(type)));
