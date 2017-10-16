@@ -43,6 +43,7 @@ namespace BeerCellar.DataAccess
             var existingCellars = _cellars.Where(cellar => cellar.Value.Owner.Id == user.Id).Select(cellar => cellar.Value);
             var maxId = existingCellars.Max(cellar => int.Parse(cellar.Id));
             beerCellar.Owner = user;
+            beerCellar.Id = (maxId + 1).ToString();
             _cellars.Add((maxId + 1).ToString(), beerCellar);
             return _cellars[(maxId + 1).ToString()];
         }
